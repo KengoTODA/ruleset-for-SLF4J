@@ -5,6 +5,7 @@
 	<artifactId>RuleSet-for-SLF4J</artifactId>
 	<version>0.1-SNAPSHOT</version>
 	<url>https://github.com/eller86/ruleset-for-SLF4J</url>
+	<description>a simple PMD ruleset for SLF4J</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.pmd.targetjdk>1.6</maven.pmd.targetjdk>
