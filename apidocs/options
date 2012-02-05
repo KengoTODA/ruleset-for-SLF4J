@@ -1,5 +1,5 @@
 -classpath
-'/Users/kengo/Documents/workspace/Java6/PMDforSLF4J/PMDforSLF4J/target/classes:/Users/kengo/Documents/workspace/Java6/PMDforSLF4J/PMDforSLF4J/ruleset/target/classes:/Users/kengo/.m2/repository/xml-apis/xml-apis/1.3.02/xml-apis-1.3.02.jar:/Users/kengo/.m2/repository/pmd/pmd/4.3/pmd-4.3.jar:/Users/kengo/.m2/repository/jaxen/jaxen/1.1.1/jaxen-1.1.1.jar:/Users/kengo/.m2/repository/org/slf4j/slf4j-api/1.6.4/slf4j-api-1.6.4.jar:/Users/kengo/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/Users/kengo/.m2/repository/ant/ant/1.6/ant-1.6.jar:/Users/kengo/.m2/repository/xerces/xercesImpl/2.6.2/xercesImpl-2.6.2.jar:/Users/kengo/.m2/repository/xom/xom/1.0/xom-1.0.jar:/Users/kengo/.m2/repository/asm/asm/3.2/asm-3.2.jar:/Users/kengo/.m2/repository/xerces/xmlParserAPIs/2.6.2/xmlParserAPIs-2.6.2.jar:/Users/kengo/.m2/repository/com/ibm/icu/icu4j/2.6.1/icu4j-2.6.1.jar:/Users/kengo/.m2/repository/jdom/jdom/1.0/jdom-1.0.jar:/Users/kengo/.m2/repository/xalan/xalan/2.6.0/xalan-2.6.0.jar'
+'/Users/kengo/Documents/workspace/Java6/PMDforSLF4J/PMDforSLF4J/ruleset/target/classes:/Users/kengo/.m2/repository/xml-apis/xml-apis/1.3.02/xml-apis-1.3.02.jar:/Users/kengo/.m2/repository/pmd/pmd/4.3/pmd-4.3.jar:/Users/kengo/.m2/repository/jaxen/jaxen/1.1.1/jaxen-1.1.1.jar:/Users/kengo/.m2/repository/org/slf4j/slf4j-api/1.6.4/slf4j-api-1.6.4.jar:/Users/kengo/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar:/Users/kengo/.m2/repository/ant/ant/1.6/ant-1.6.jar:/Users/kengo/.m2/repository/xerces/xercesImpl/2.6.2/xercesImpl-2.6.2.jar:/Users/kengo/.m2/repository/xom/xom/1.0/xom-1.0.jar:/Users/kengo/.m2/repository/asm/asm/3.2/asm-3.2.jar:/Users/kengo/.m2/repository/xerces/xmlParserAPIs/2.6.2/xmlParserAPIs-2.6.2.jar:/Users/kengo/.m2/repository/com/ibm/icu/icu4j/2.6.1/icu4j-2.6.1.jar:/Users/kengo/.m2/repository/jdom/jdom/1.0/jdom-1.0.jar:/Users/kengo/.m2/repository/xalan/xalan/2.6.0/xalan-2.6.0.jar'
 -encoding
 'UTF-8'
 -protected
@@ -11,14 +11,14 @@
 -charset
 'UTF-8'
 -d
-'/Users/kengo/Documents/workspace/Java6/PMDforSLF4J/PMDforSLF4J/target/site/apidocs'
+'/Users/kengo/Documents/workspace/Java6/PMDforSLF4J/PMDforSLF4J/ruleset/target/site/apidocs'
 -docencoding
 'UTF-8'
 -doctitle
-'PMD tools for SLF4J 0.1-SNAPSHOT API'
+'PMD RuleSet for SLF4J 0.1-SNAPSHOT API'
 -linkoffline
-'http://download.oracle.com/javase/6/docs/api' '/Users/kengo/Documents/workspace/Java6/PMDforSLF4J/PMDforSLF4J/target/javadoc-bundle-options'
+'http://download.oracle.com/javase/6/docs/api' '/Users/kengo/Documents/workspace/Java6/PMDforSLF4J/PMDforSLF4J/ruleset/target/javadoc-bundle-options'
 -use
 -version
 -windowtitle
-'PMD tools for SLF4J 0.1-SNAPSHOT API'
+'PMD RuleSet for SLF4J 0.1-SNAPSHOT API'
