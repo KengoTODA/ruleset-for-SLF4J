@@ -25,8 +25,8 @@ public final class DontPassOtherClassToLoggerFactory extends AbstractJavaRule {
 
 	@Override
 	public Object visit(ASTFieldDeclaration node, Object data) {
-		Class<?> fieldType = node.getFirstChildOfType(ASTClassOrInterfaceType.class).getType();
-		if (fieldType.equals(org.slf4j.Logger.class)) {
+		ASTClassOrInterfaceType field = node.getFirstChildOfType(ASTClassOrInterfaceType.class);
+		if (field != null && field.getType().equals(org.slf4j.Logger.class)) {
 			ASTVariableInitializer initializer = node.getFirstChildOfType(ASTVariableInitializer.class);
 			ASTClassOrInterfaceType givenClassToFactory = initializer.getFirstChildOfType(ASTClassOrInterfaceType.class);
 			if (givenClassToFactory != null && !givenClassToFactory.getType().equals(stack.peek())) {

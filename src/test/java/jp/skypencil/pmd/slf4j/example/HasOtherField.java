@@ -8,4 +8,6 @@ public class HasOtherField {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	@SuppressWarnings("unused")
 	private final Object object = new Object();
+	@SuppressWarnings("unused")
+	private final int integer = 0;
 }
