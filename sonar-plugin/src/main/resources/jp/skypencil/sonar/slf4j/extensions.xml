@@ -2,28 +2,28 @@
 	<rule>
 		<key>DontPassOtherClassToLoggerFactory</key>
 		<name>Don&apos;t pass other class to LoggerFactory.</name>
-		<configKey>jp/skypencil/pmd/slf4j/rulesets.xml/DontPassOtherClassToLoggerFactory</configKey>
+		<configKey>jp/skypencil/sonar/slf4j/rulesets.xml/DontPassOtherClassToLoggerFactory</configKey>
 		<priority>CRITICAL</priority>
 	</rule>
 
 	<rule>
 		<key>DontPublishLogger</key>
 		<name>Don&apos;t publish Logger.</name>
-		<configKey>jp/skypencil/pmd/slf4j/rulesets.xml/DontPublishLogger</configKey>
+		<configKey>jp/skypencil/sonar/slf4j/rulesets.xml/DontPublishLogger</configKey>
 		<priority>MAJOR</priority>
 	</rule>
 
 	<rule>
 		<key>LoggerShouldBeFinal</key>
 		<name>Logger should be final.</name>
-		<configKey>jp/skypencil/pmd/slf4j/rulesets.xml/LoggerShouldBeFinal</configKey>
+		<configKey>jp/skypencil/sonar/slf4j/rulesets.xml/LoggerShouldBeFinal</configKey>
 		<priority>MAJOR</priority>
 	</rule>
 
 	<rule>
 		<key>DontUseStaticLogger</key>
 		<name>Don&apos;t static logger.</name>
-		<configKey>jp/skypencil/pmd/slf4j/rulesets.xml/DontUseStaticLogger</configKey>
+		<configKey>jp/skypencil/sonar/slf4j/rulesets.xml/DontUseStaticLogger</configKey>
 		<priority>MAJOR</priority>
 	</rule>
 </rules>
