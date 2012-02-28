@@ -36,6 +36,7 @@ public abstract class ExampleBasedTest {
 
 		private Set<String> getExampleNames() {
 			return new HashSet<String>(Arrays.asList(new String[]{
+				"UsingFormat",
 				"UsingStaticLogger",
 				"UsingGetClass",
 				"GivingOtherClassToFactory",
@@ -78,7 +79,7 @@ public abstract class ExampleBasedTest {
 			Rule rule = createRule();
 
 			if (rule.getMessage() == null) {
-				// AbstractJavaRule#addViolation()でNullPointerExceptionが出るのを回避する
+				// AbstractJavaRule#addViolation()縺ｧNullPointerException縺悟�繧九�繧貞屓驕ｿ縺吶ｋ
 				rule.setMessage("");
 			}
 
