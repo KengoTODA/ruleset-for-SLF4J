@@ -34,8 +34,8 @@ public abstract class ExampleBasedTest {
 		protected abstract Rule createRule();
 		protected abstract Collection<String> getExpectedExampleNames();
 
-		private Set<String> getExampleNames() {
-			return new HashSet<String>(Arrays.asList(new String[]{
+	private Set<String> getExampleNames() {
+		return new HashSet<String>(Arrays.asList(new String[] {
 				"UsingFormat",
 				"UsingFormatWithoutArgument",
 				"UsingFormatWithoutArgumentButWithException",
@@ -51,8 +51,8 @@ public abstract class ExampleBasedTest {
 				"UsingNotFinalLogger",
 				"LoggerForInnerClass",
 				"HasOtherField"
-			}));
-		}
+		}));
+	}
 
 		@Test
 		public void test() {
