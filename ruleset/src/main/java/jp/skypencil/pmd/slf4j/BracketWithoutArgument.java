@@ -12,7 +12,9 @@ import net.sourceforge.pmd.ast.ASTClassOrInterfaceType;
 import net.sourceforge.pmd.ast.ASTExpression;
 import net.sourceforge.pmd.ast.ASTFieldDeclaration;
 import net.sourceforge.pmd.ast.ASTLiteral;
+import net.sourceforge.pmd.ast.ASTName;
 import net.sourceforge.pmd.ast.ASTPrimaryExpression;
+import net.sourceforge.pmd.ast.ASTPrimaryPrefix;
 import net.sourceforge.pmd.ast.ASTPrimarySuffix;
 import net.sourceforge.pmd.ast.ASTType;
 import net.sourceforge.pmd.ast.ASTVariableDeclaratorId;
@@ -38,12 +40,15 @@ public class BracketWithoutArgument extends AbstractJavaRule {
 
 	@Override
 	public Object visit(ASTPrimaryExpression node, Object data) {
+		node.dump(">");
+		ASTPrimaryPrefix prefix = node.getFirstChildOfType(ASTPrimaryPrefix.class);
 		ASTPrimarySuffix suffix = node.getFirstChildOfType(ASTPrimarySuffix.class);
-		if (suffix == null) {
+		if (prefix == null || suffix == null) {
 			return super.visit(node, data);
 		}
+		String expressionName = prefix.getFirstChildOfType(ASTName.class).getImage();
 		ASTArgumentList argumentList = suffix.getFirstChildOfType(ASTArgumentList.class);
-		if (argumentList == null) {
+		if (!isLogging(expressionName) || argumentList == null) {
 			return super.visit(node, data);
 		}
 
@@ -53,13 +58,30 @@ public class BracketWithoutArgument extends AbstractJavaRule {
 			if (literal != null) {
 				String format = literal.getImage();
 				int expectedArguments = countDelimiter(format);
-				if (expectedArguments != arguments.size() - 1 && expectedArguments != arguments.size() - 2) {
+				if (expectedArguments == arguments.size() - 1) {
+					// normal case
+				} else if (expectedArguments == arguments.size() - 2) {
 					// last argument may Throwable
+					ASTExpression lastArgument = arguments.get(arguments.size() - 1);
+					lastArgument.dump("last>");
+				} else {
 					addViolation(data, node);
 				}
 			}
 		}
 		return super.visit(node, data);
+	}
+
+	private boolean isLogging(String expressionName) {
+		for (String fieldName : loggerFields) {
+			for (String methodName : new String[]{"trace", "debug", "info", "warn", "error"}) {
+				String loggingMethodName = fieldName + "." + methodName;
+				if (expressionName.equals(loggingMethodName)) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	int countDelimiter(String format) {

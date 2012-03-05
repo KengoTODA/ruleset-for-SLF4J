@@ -7,6 +7,7 @@ public class UsingFormatWithException {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	public void method() {
-		logger.info("Hello, {}", "World", new RuntimeException());
+		Throwable t = new RuntimeException();
+		logger.info("UsingFormatWithException is {}.", "correct", t);
 	}
 }

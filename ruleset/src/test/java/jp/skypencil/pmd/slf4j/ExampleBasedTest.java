@@ -34,25 +34,25 @@ public abstract class ExampleBasedTest {
 		protected abstract Rule createRule();
 		protected abstract Collection<String> getExpectedExampleNames();
 
-	private Set<String> getExampleNames() {
-		return new HashSet<String>(Arrays.asList(new String[] {
-				"UsingFormat",
-				"UsingFormatWithoutArgument",
-				"UsingFormatWithoutArgumentButWithException",
-				"UsingFormatWithException",
-				"LogWithException",
-				"UsingStaticLogger",
-				"UsingGetClass",
-				"GivingOtherClassToFactory",
-				"UsingPublicLogger",
-				"UsingProtectedLogger",
-				"UsingPackagePrivateLogger",
-				"UsingPrivateLogger",
-				"UsingNotFinalLogger",
-				"LoggerForInnerClass",
-				"HasOtherField"
-		}));
-	}
+		private Set<String> getExampleNames() {
+			return new HashSet<String>(Arrays.asList(new String[] {
+					"UsingFormat",
+					"UsingFormatWithoutArgument",
+					"UsingFormatWithoutArgumentButWithException",
+					"UsingFormatWithException",
+					"LogWithException",
+					"UsingStaticLogger",
+					"UsingGetClass",
+					"GivingOtherClassToFactory",
+					"UsingPublicLogger",
+					"UsingProtectedLogger",
+					"UsingPackagePrivateLogger",
+					"UsingPrivateLogger",
+					"UsingNotFinalLogger",
+					"LoggerForInnerClass",
+					"HasOtherField"
+			}));
+		}
 
 		@Test
 		public void test() {
@@ -83,7 +83,6 @@ public abstract class ExampleBasedTest {
 			Rule rule = createRule();
 
 			if (rule.getMessage() == null) {
-				// AbstractJavaRule#addViolation()縺ｧNullPointerException縺悟�繧九�繧貞屓驕ｿ縺吶ｋ
 				rule.setMessage("");
 			}
 
