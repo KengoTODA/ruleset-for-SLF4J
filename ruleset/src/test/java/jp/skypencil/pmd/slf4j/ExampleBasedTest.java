@@ -37,6 +37,10 @@ public abstract class ExampleBasedTest {
 		private Set<String> getExampleNames() {
 			return new HashSet<String>(Arrays.asList(new String[]{
 				"UsingFormat",
+				"UsingFormatWithoutArgument",
+				"UsingFormatWithoutArgumentButWithException",
+				"UsingFormatWithException",
+				"LogWithException",
 				"UsingStaticLogger",
 				"UsingGetClass",
 				"GivingOtherClassToFactory",
