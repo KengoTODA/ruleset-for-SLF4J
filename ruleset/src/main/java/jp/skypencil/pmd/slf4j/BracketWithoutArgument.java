@@ -40,7 +40,6 @@ public class BracketWithoutArgument extends AbstractJavaRule {
 
 	@Override
 	public Object visit(ASTPrimaryExpression node, Object data) {
-		node.dump(">");
 		ASTPrimaryPrefix prefix = node.getFirstChildOfType(ASTPrimaryPrefix.class);
 		ASTPrimarySuffix suffix = node.getFirstChildOfType(ASTPrimarySuffix.class);
 		if (prefix == null || suffix == null) {
@@ -58,18 +57,26 @@ public class BracketWithoutArgument extends AbstractJavaRule {
 			if (literal != null) {
 				String format = literal.getImage();
 				int expectedArguments = countDelimiter(format);
-				if (expectedArguments == arguments.size() - 1) {
-					// normal case
-				} else if (expectedArguments == arguments.size() - 2) {
-					// last argument may Throwable
-					ASTExpression lastArgument = arguments.get(arguments.size() - 1);
-					lastArgument.dump("last>");
-				} else {
+				ASTExpression lastArgument = arguments.get(arguments.size() - 1);
+				int givenArguments = arguments.size() - 1;	// removing count of message
+				if (isThrowable(lastArgument.getType())) {
+					--givenArguments;
+				}
+				if (expectedArguments != givenArguments) {
 					addViolation(data, node);
 				}
 			}
 		}
 		return super.visit(node, data);
+	}
+
+	boolean isThrowable(Class<?> clazz) {
+		Class<?> superClass = clazz.getSuperclass();
+		if (superClass == null || superClass == Object.class) {
+			return clazz.equals(Throwable.class);
+		} else {
+			return isThrowable(superClass);
+		}
 	}
 
 	private boolean isLogging(String expressionName) {
