@@ -16,11 +16,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.pmd.targetjdk>1.6</maven.pmd.targetjdk>
 	</properties>
-	<scm>
-		<connection>scm:git://github.com/eller86/ruleset-for-SLF4J.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com/eller86/ruleset-for-SLF4J.git</developerConnection>
-		<url>https://github.com/eller86/ruleset-for-SLF4J</url>
-	</scm>
 	<prerequisites>
 		<maven>3.0.3</maven>
 	</prerequisites>
@@ -68,16 +63,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<distributionManagement>
-		<repository>
-			<id>release.skypencil.forge.cloudbees.com</id>
-			<uniqueVersion>false</uniqueVersion>
-			<url>dav:https://repository-skypencil.forge.cloudbees.com/release/</url>
-		</repository>
-		<snapshotRepository>
-			<id>snapshot.skypencil.forge.cloudbees.com</id>
-			<uniqueVersion>true</uniqueVersion>
-			<url>dav:https://repository-skypencil.forge.cloudbees.com/snapshot/</url>
-		</snapshotRepository>
-	</distributionManagement>
 </project>

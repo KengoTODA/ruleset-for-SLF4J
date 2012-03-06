@@ -35,7 +35,7 @@
 	</licenses>
 	<modules>
 		<module>ruleset</module>
-		<!-- <module>sonar-plugin</module> -->
+		<module>sonar-plugin</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>
