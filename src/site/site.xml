@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/DECORATION/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/DECORATION/1.1.0 http://maven.apache.org/xsd/decoration-1.1.0.xsd">
+  <poweredBy>
+    <logo name="Maven" href="http://maven.apache.org/"
+          img="http://maven.apache.org/images/logos/maven-feather.png"/>
+    <logo name="DEV@cloud" href="http://www.cloudbees.com/"
+          img="http://static-www.cloudbees.com/images/badges/BuiltOnDEV.png"/>
+  </poweredBy>
+  <body>
+    <menu name="Overview">
+      <item name="Introduction" href="index.html"/>
+    </menu>
+    <menu name="Sub projects">
+      <item name="RuleSet" href="RuleSet-for-SLF4J/index.html"/>
+      <item name="Sonar Plugin" href="sonar-pmd-for-SLF4J-plugin/index.html"/>
+    </menu>
+    <menu ref="reports"/>
+  </body>
+  <skin>
+    <groupId>org.apache.maven.skins</groupId>
+    <artifactId>maven-fluido-skin</artifactId>
+    <version>1.1</version>
+  </skin>
+  <custom>
+    <fluidoSkin>
+      <googleSearch>
+        <sitesearch/>
+      </googleSearch>
+      <sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
+      <gitHub>
+        <projectId>eller86/ruleset-for-SLF4J</projectId>
+        <ribbonOrientation>right</ribbonOrientation>
+        <ribbonColor>black</ribbonColor>
+      </gitHub>
+      <twitter>
+        <user>eller86</user>
+      </twitter>
+    </fluidoSkin>
+  </custom>
+</project>
