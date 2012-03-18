@@ -55,7 +55,8 @@ public abstract class ExampleBasedTest {
 					"LoggerForInnerClass",
 					"HasOtherField",
 					"UsingUnknownClassNotCompiled",
-					"UsingUnknownClassToFieldNotCompiled"
+					"UsingUnknownClassToFieldNotCompiled",
+					"UsingUnknownThrowableToLogNotCompiled"
 			}));
 		}
 
