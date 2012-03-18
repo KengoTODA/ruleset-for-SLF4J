@@ -14,6 +14,11 @@ import net.sourceforge.pmd.ast.ASTName;
 import net.sourceforge.pmd.ast.ASTVariableInitializer;
 
 public final class DontPassOtherClassToLoggerFactory extends AbstractJavaRule {
+	private static final String LOGGER_CLASS_NAME = org.slf4j.Logger.class.getName();
+	private static final String LOGGER_SIMPLE_CLASS_NAME = org.slf4j.Logger.class.getSimpleName();
+
+	private boolean loggerIsImported;
+
 	// stack which contains class name
 	private Deque<String> stack = new LinkedList<String>();
 
@@ -26,6 +31,9 @@ public final class DontPassOtherClassToLoggerFactory extends AbstractJavaRule {
 		String fqcn = node.getFirstChildOfType(ASTName.class).getImage();
 		String className = fqcn.substring(fqcn.lastIndexOf('.'));
 		classNameToFqcn.put(className, fqcn);
+		if (fqcn.equals(LOGGER_CLASS_NAME)) {
+			loggerIsImported = true;
+		}
 		return super.visit(node, data);
 	}
 
@@ -45,7 +53,7 @@ public final class DontPassOtherClassToLoggerFactory extends AbstractJavaRule {
 	@Override
 	public Object visit(ASTFieldDeclaration node, Object data) {
 		ASTClassOrInterfaceType field = node.getFirstChildOfType(ASTClassOrInterfaceType.class);
-		if (field != null && field.getType().equals(org.slf4j.Logger.class)) {
+		if (field != null && fieldIsLogger(field)) {
 			ASTVariableInitializer initializer = node.getFirstChildOfType(ASTVariableInitializer.class);
 			ASTClassOrInterfaceType givenClassToFactory = initializer.getFirstChildOfType(ASTClassOrInterfaceType.class);
 			if (givenClassToFactory != null) {
@@ -64,5 +72,15 @@ public final class DontPassOtherClassToLoggerFactory extends AbstractJavaRule {
 		}
 
 		return super.visit(node, data);
+	}
+
+	private boolean fieldIsLogger(ASTClassOrInterfaceType field) {
+		String typeName = field.getImage();
+		if (typeName.equals(LOGGER_CLASS_NAME)) {
+			return true;
+		} else if (loggerIsImported && typeName.equals(LOGGER_SIMPLE_CLASS_NAME)) {
+			return true;
+		}
+		return false;
 	}
 }

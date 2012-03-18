@@ -45,6 +45,8 @@ public abstract class ExampleBasedTest {
 					"UsingGetClass",
 					"GivingFqcnToFactory",
 					"GivingOtherClassToFactory",
+					"UsingFqcnToLogger",
+					"UsingFqcnToLoggerWithImport",
 					"UsingPublicLogger",
 					"UsingProtectedLogger",
 					"UsingPackagePrivateLogger",
@@ -52,7 +54,8 @@ public abstract class ExampleBasedTest {
 					"UsingNotFinalLogger",
 					"LoggerForInnerClass",
 					"HasOtherField",
-					"UsingUnknownClassNotCompiled"
+					"UsingUnknownClassNotCompiled",
+					"UsingUnknownClassToFieldNotCompiled"
 			}));
 		}
 
