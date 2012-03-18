@@ -10,11 +10,12 @@ import net.sourceforge.pmd.ast.ASTFieldDeclaration;
 import net.sourceforge.pmd.ast.ASTVariableInitializer;
 
 public final class DontPassOtherClassToLoggerFactory extends AbstractJavaRule {
-	private Deque<Class<?>> stack = new LinkedList<Class<?>>();
+	// stack which contains class name
+	private Deque<String> stack = new LinkedList<String>();
 
 	@Override
 	public Object visit(ASTClassOrInterfaceDeclaration node, Object data) {
-		stack.push(node.getType());
+		stack.push(node.getImage());
 
 		try {
 			return super.visit(node, data);
@@ -29,7 +30,8 @@ public final class DontPassOtherClassToLoggerFactory extends AbstractJavaRule {
 		if (field != null && field.getType().equals(org.slf4j.Logger.class)) {
 			ASTVariableInitializer initializer = node.getFirstChildOfType(ASTVariableInitializer.class);
 			ASTClassOrInterfaceType givenClassToFactory = initializer.getFirstChildOfType(ASTClassOrInterfaceType.class);
-			if (givenClassToFactory != null && !givenClassToFactory.getType().equals(stack.peek())) {
+			if (givenClassToFactory!=null) givenClassToFactory.dump(stack.peek() + ">");
+			if (givenClassToFactory != null && !givenClassToFactory.getImage().equals(stack.peek())) {
 				addViolation(data, node);
 			}
 		}

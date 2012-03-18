@@ -50,7 +50,8 @@ public abstract class ExampleBasedTest {
 					"UsingPrivateLogger",
 					"UsingNotFinalLogger",
 					"LoggerForInnerClass",
-					"HasOtherField"
+					"HasOtherField",
+					"UsingUnknownClassNotCompiled"
 			}));
 		}
 
