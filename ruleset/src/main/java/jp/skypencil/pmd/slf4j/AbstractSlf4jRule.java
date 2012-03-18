@@ -13,6 +13,10 @@ abstract class AbstractSlf4jRule extends AbstractJavaRule {
 
 	@Override
 	public Object visit(ASTImportDeclaration node, Object data) {
+		if (node.isStatic()) {
+			return super.visit(node, data);
+		}
+
 		String fqcn = node.getFirstChildOfType(ASTName.class).getImage();
 		if (fqcn.equals(LOGGER_CLASS_NAME)) {
 			loggerIsImported = true;
