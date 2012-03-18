@@ -43,6 +43,7 @@ public abstract class ExampleBasedTest {
 					"LogWithException",
 					"UsingStaticLogger",
 					"UsingGetClass",
+					"GivingFqcnToFactory",
 					"GivingOtherClassToFactory",
 					"UsingPublicLogger",
 					"UsingProtectedLogger",
