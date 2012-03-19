@@ -22,7 +22,7 @@
 		<priority>1</priority>
 	</rule>
 
-	<rule name="DontUseStaticLogger" message="Don&apos;t static logger."
+	<rule name="DontUseStaticLogger" message="Don&apos;t use static logger."
 		class="jp.skypencil.pmd.slf4j.DontUseStaticLogger">
 		<priority>3</priority>
 	</rule>
