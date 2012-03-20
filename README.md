@@ -5,7 +5,7 @@ This ruleset helps you to code with SLF4J. We use DEV@cloud to host Jenkins.
 
 
 # what this project contains
-This project has 2 sub modules. To get their binary, please kick `mvn clean package` or visit our [Jenkins](https://skypencil.ci.cloudbees.com/job/ruleset-for-SLF4J/lastStableBuild/).
+This project has 2 sub modules. To get their binary, please kick `mvn clean package` or visit [our Jenkins](https://skypencil.ci.cloudbees.com/job/ruleset-for-SLF4J/lastStableBuild/).
 
 ## ruleset
 Simple PMD ruleset for SLF4J.
