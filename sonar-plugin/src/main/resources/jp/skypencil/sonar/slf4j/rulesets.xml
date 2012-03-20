@@ -1,29 +1,65 @@
 <?xml version="1.0"?>
-<ruleset name="SLF4J" xmlns="http://pmd.sf.net/ruleset/1.0.0"
+<ruleset name="SLF4J" xmlns="http://pmd.sf.net/ruleset/2.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd"
-	xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd">
+	xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd"
+	xsi:noNamespaceSchemaLocation="http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
 	<description>
 		Rulesets for SLF4J.
 	</description>
 
-	<rule name="DontPassOtherClassToLoggerFactory" message="Don&apos;t pass other class to LoggerFactory."
+	<rule name="DontPassOtherClassToLoggerFactory" message="You have to pass the Class which you're coding about to LoggerFactory#getLogger(Class)."
 		class="jp.skypencil.pmd.slf4j.DontPassOtherClassToLoggerFactory">
 		<priority>1</priority>
+		<description>
+		You have to pass the Class which you're coding about to LoggerFactory#getLogger(Class).
+		</description>
+		<example><![CDATA[
+class Foo {
+    // You have to avoid passing Bar.class in Foo.class
+    private final Logger logger = LoggerFactory.getLogger(Bar.class);
+}
+		]]></example>
 	</rule>
 
-	<rule name="DontPublishLogger" message="Don&apos;t publish Logger."
+	<rule name="DontPublishLogger" message="You have to make your all logger to private."
 		class="jp.skypencil.pmd.slf4j.DontPublishLogger">
 		<priority>1</priority>
+		<description>
+		You have to make your all logger to private.
+		</description>
+		<example><![CDATA[
+class Foo {
+    // You have to avoid publishing Logger
+    public final Logger logger = LoggerFactory.getLogger(Foo.class);
+}
+		]]></example>
 	</rule>
 
-	<rule name="LoggerShouldBeFinal" message="Logger should be final."
+	<rule name="LoggerShouldBeFinal" message="Your all logger should be final."
 		class="jp.skypencil.pmd.slf4j.LoggerShouldBeFinal">
 		<priority>1</priority>
+		<description>
+		Your all logger should be final.
+		</description>
+		<example><![CDATA[
+class Foo {
+    // Logger should be final
+    private Logger bad = LoggerFactory.getLogger(Foo.class);
+}
+		]]></example>
 	</rule>
 
-	<rule name="DontUseStaticLogger" message="Don&apos;t static logger."
+	<rule name="DontUseStaticLogger" message="The SLF4J community recommends to use non-static logger."
 		class="jp.skypencil.pmd.slf4j.DontUseStaticLogger">
 		<priority>3</priority>
+		<description>
+		The SLF4J community recommends to use non-static logger. See official FAQ at http://www.slf4j.org/faq.html#declared_static
+		</description>
+		<example><![CDATA[
+class Foo {
+    // Logger has to be non-static
+    private final static Logger bad = LoggerFactory.getLogger(Foo.class);
+}
+		]]></example>
 	</rule>
 </ruleset>

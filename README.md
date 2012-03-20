@@ -59,7 +59,7 @@ The SLF4J community recommends to use non-static logger. See [official FAQ](http
 
 ```java
 class Foo {
-    // Logger doesn't have to be static
+    // Logger has to be non-static
     private final static Logger bad = LoggerFactory.getLogger(Foo.class);
     // This is OK
     private final Logger logger = LoggerFactory.getLogger(Foo.class);
