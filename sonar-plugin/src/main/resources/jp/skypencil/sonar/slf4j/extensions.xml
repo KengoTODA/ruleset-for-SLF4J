@@ -4,6 +4,9 @@
 		<name>Don&apos;t pass other class to LoggerFactory.</name>
 		<configKey>jp/skypencil/sonar/slf4j/rulesets.xml/DontPassOtherClassToLoggerFactory</configKey>
 		<priority>CRITICAL</priority>
+		<description>
+		You have to pass the Class which you're coding about to LoggerFactory#getLogger(Class).
+		</description>
 	</rule>
 
 	<rule>
@@ -11,6 +14,9 @@
 		<name>Don&apos;t publish Logger.</name>
 		<configKey>jp/skypencil/sonar/slf4j/rulesets.xml/DontPublishLogger</configKey>
 		<priority>MAJOR</priority>
+		<description>
+		You have to make your all logger to private.
+		</description>
 	</rule>
 
 	<rule>
@@ -18,6 +24,9 @@
 		<name>Logger should be final.</name>
 		<configKey>jp/skypencil/sonar/slf4j/rulesets.xml/LoggerShouldBeFinal</configKey>
 		<priority>MAJOR</priority>
+		<description>
+		Your all logger should be final.
+		</description>
 	</rule>
 
 	<rule>
@@ -25,5 +34,8 @@
 		<name>Don&apos;t static logger.</name>
 		<configKey>jp/skypencil/sonar/slf4j/rulesets.xml/DontUseStaticLogger</configKey>
 		<priority>MAJOR</priority>
+		<description>
+		The SLF4J community recommends to use non-static logger. See official FAQ at http://www.slf4j.org/faq.html#declared_static
+		</description>
 	</rule>
 </rules>
