@@ -31,7 +31,7 @@
 
 	<rule>
 		<key>DontUseStaticLogger</key>
-		<name>Don&apos;t static logger.</name>
+		<name>Don&apos;t use static logger.</name>
 		<configKey>jp/skypencil/sonar/slf4j/rulesets.xml/DontUseStaticLogger</configKey>
 		<priority>MAJOR</priority>
 		<description>
