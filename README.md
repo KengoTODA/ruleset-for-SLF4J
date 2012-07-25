@@ -1,5 +1,5 @@
 # a simple PMD ruleset for SLF4J
-This ruleset helps you to code with SLF4J. We use DEV@cloud to host Jenkins.
+This ruleset helps you to code with SLF4J.
 
 [![Build Status](https://secure.travis-ci.org/eller86/ruleset-for-SLF4J.png?branch=master)](http://travis-ci.org/eller86/ruleset-for-SLF4J)
 
