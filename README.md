@@ -1,11 +1,10 @@
 # a simple PMD ruleset for SLF4J
 This ruleset helps you to code with SLF4J. We use DEV@cloud to host Jenkins.
 
-![built and tested on DEV@cloud](http://static-www.cloudbees.com/images/badges/BuiltOnDEV.png)
-
+[![Build Status](https://secure.travis-ci.org/eller86/ruleset-for-SLF4J.png?branch=master)](http://travis-ci.org/eller86/ruleset-for-SLF4J)
 
 # what this project contains
-This project has 2 sub modules. To get their binary, please kick `mvn clean package` or visit [our Jenkins](https://skypencil.ci.cloudbees.com/job/ruleset-for-SLF4J/lastStableBuild/).
+This project has 2 sub modules. To get their binary, please kick `mvn clean package`.
 
 ## ruleset
 Simple PMD ruleset for SLF4J.
