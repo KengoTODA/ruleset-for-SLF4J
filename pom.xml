@@ -13,9 +13,9 @@
 		<maven.pmd.targetjdk>1.6</maven.pmd.targetjdk>
 	</properties>
 	<scm>
-		<connection>scm:git://github.com/eller86/ruleset-for-SLF4J.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com/eller86/ruleset-for-SLF4J.git</developerConnection>
-		<url>https://github.com/eller86/ruleset-for-SLF4J</url>
+		<connection>scm:git:git@github.com:eller86/ruleset-for-SLF4J.git</connection>
+		<developerConnection>scm:git:git@github.com:eller86/ruleset-for-SLF4J.git</developerConnection>
+		<url>git@github.com:eller86/ruleset-for-SLF4J.git</url>
 	</scm>
 	<prerequisites>
 		<maven>3.0.3</maven>
@@ -25,12 +25,14 @@
 			<id>eller86</id>
 			<name>Kengo TODA</name>
 			<url>http://skypencil.jp/</url>
+			<email>skypencil@gmail.com</email>
 		</developer>
 	</developers>
 	<licenses>
 		<license>
 			<name>Apache License, Version 2.0</name>
 			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+			<distribution>repo</distribution>
 		</license>
 	</licenses>
 	<modules>
@@ -126,24 +128,17 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<extensions>
-			<extension>
-				<groupId>org.apache.maven.wagon</groupId>
-				<artifactId>wagon-webdav</artifactId>
-				<version>1.0-beta-2</version>
-			</extension>
-		</extensions>
 	</build>
 	<distributionManagement>
 		<repository>
-			<id>release.skypencil.forge.cloudbees.com</id>
-			<uniqueVersion>false</uniqueVersion>
-			<url>dav:https://repository-skypencil.forge.cloudbees.com/release/</url>
+			<id>sonatype-nexus-staging</id>
+			<name>Nexus Release Repository</name>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
 		<snapshotRepository>
-			<id>snapshot.skypencil.forge.cloudbees.com</id>
-			<uniqueVersion>true</uniqueVersion>
-			<url>dav:https://repository-skypencil.forge.cloudbees.com/snapshot/</url>
+			<id>sonatype-nexus-snapshots</id>
+			<name>Sonatype Nexus Snapshots</name>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
 		</snapshotRepository>
 		<site>
 			<id>github</id>
@@ -151,4 +146,33 @@
 			<url>http://eller86.github.com/ruleset-for-SLF4J/</url>
 		</site>
 	</distributionManagement>
+	<profiles>
+		<profile>
+			<id>release-sign-artifacts</id>
+			<activation>
+				<property>
+					<name>performRelease</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.1</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
