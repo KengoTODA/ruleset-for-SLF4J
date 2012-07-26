@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>jp.skypencil</groupId>
 	<artifactId>sonar-pmd-for-SLF4J-plugin</artifactId>
 	<packaging>sonar-plugin</packaging>
-	<version>0.1-SNAPSHOT</version>
+	<version>0.1</version>
 	<name>PMD Extension Plugin for SLF4J</name>
 	<parent>
 		<groupId>jp.skypencil</groupId>
 		<artifactId>PMD-tools-for-SLF4J</artifactId>
-		<version>0.1-SNAPSHOT</version>
+		<version>0.1</version>
 	</parent>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -49,7 +48,7 @@
 		<dependency>
 			<groupId>jp.skypencil</groupId>
 			<artifactId>RuleSet-for-SLF4J</artifactId>
-			<version>0.1-SNAPSHOT</version>
+			<version>0.1</version>
 		</dependency>
 	</dependencies>
 
