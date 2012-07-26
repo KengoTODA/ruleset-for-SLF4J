@@ -139,11 +139,6 @@
 			<name>Sonatype Nexus Snapshots</name>
 			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
 		</snapshotRepository>
-		<site>
-			<id>github</id>
-			<name>GitHub Pages</name>
-			<url>http://eller86.github.com/ruleset-for-SLF4J/</url>
-		</site>
 	</distributionManagement>
 	<profiles>
 		<profile>
