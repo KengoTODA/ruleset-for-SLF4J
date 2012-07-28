@@ -11,7 +11,7 @@
 		class="jp.skypencil.pmd.slf4j.DontPassOtherClassToLoggerFactory">
 		<priority>1</priority>
 		<description>
-		You have to pass the Class which you're coding about to LoggerFactory#getLogger(Class).
+		Given argument for LoggerFactory#getLogger(Class) is wrong. You have to provide the Class which you're coding.
 		</description>
 		<example><![CDATA[
 class Foo {
@@ -25,7 +25,7 @@ class Foo {
 		class="jp.skypencil.pmd.slf4j.DontPublishLogger">
 		<priority>1</priority>
 		<description>
-		You have to make your all logger to private.
+		Logger should be private.
 		</description>
 		<example><![CDATA[
 class Foo {
@@ -39,7 +39,7 @@ class Foo {
 		class="jp.skypencil.pmd.slf4j.LoggerShouldBeFinal">
 		<priority>1</priority>
 		<description>
-		Your all logger should be final.
+		Logger should be final.
 		</description>
 		<example><![CDATA[
 class Foo {
