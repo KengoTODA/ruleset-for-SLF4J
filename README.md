@@ -4,15 +4,39 @@ This ruleset helps you to code with SLF4J.
 [![Build Status](https://secure.travis-ci.org/eller86/ruleset-for-SLF4J.png?branch=master)](http://travis-ci.org/eller86/ruleset-for-SLF4J)
 
 # what this project contains
-This project has 2 sub modules. To get their binary, please kick `mvn clean package`.
+This project has 2 sub modules.
 
 ## ruleset
-Simple PMD ruleset for SLF4J.
-I recommend using sonar-plugin to use this ruleset for your project.
+Simple PMD ruleset for SLF4J. You can use it easily with Maven like below.
+Sample ruleset XML file is [here](https://raw.github.com/eller86/ruleset-for-SLF4J/master/ruleset/src/main/resources/slf4j.xml).
+
+```xml
+<plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-pmd-plugin</artifactId>
+	<version>2.7.1</version>
+	<dependencies>
+		<dependency>
+			<groupId>jp.skypencil</groupId>
+			<artifactId>RuleSet-for-SLF4J</artifactId>
+			<version>0.1</version>
+		</dependency>
+	</dependencies>
+	<configuration>
+		<linkXRef>false</linkXRef>
+		<sourceEncoding>UTF-8</sourceEncoding>
+		<targetJdk>1.6</targetJdk>
+		<rulesets>
+			<ruleset>src/rulesets/slf4j.xml</ruleset>
+		</rulesets>
+	</configuration>
+</plugin>
+```
 
 ## sonar-plugin
 An plugin for Sonar.
 Please put this plugin (.jar) to your `${sonar.home}/extensions/plugin` directory.
+You can command `mvn package` to build jar file, or download it from [Maven central](http://central.maven.org/maven2/jp/skypencil/sonar-pmd-for-SLF4J-plugin/).
 
 # rules
 Currently, we've provided 4 rules.
