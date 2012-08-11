@@ -39,7 +39,7 @@ Please put this plugin (.jar) to your `${sonar.home}/extensions/plugin` director
 You can command `mvn package` to build jar file, or download it from [Maven central](http://central.maven.org/maven2/jp/skypencil/sonar-pmd-for-SLF4J-plugin/).
 
 # rules
-Currently, we've provided 4 rules.
+Currently, we've provided 5 rules.
 
 ## Don't pass other class to LoggerFactory
 You have to pass the Class which you're coding about to LoggerFactory#getLogger(Class).
