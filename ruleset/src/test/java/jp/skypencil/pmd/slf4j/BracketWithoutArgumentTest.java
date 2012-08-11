@@ -23,7 +23,11 @@ public class BracketWithoutArgumentTest extends ExampleBasedTest {
 	protected Collection<String> getExpectedExampleNames() {
 		return Arrays.asList(new String[]{
 				"UsingFormatWithoutArgument",
-				"UsingFormatWithoutArgumentButWithException"
+				"UsingFormatWithNotEnoughArgument",
+				"UsingFormatWithTooLongArray",
+				"UsingFormatWithTooManyArgument",
+				"UsingFormatWithoutArgumentButWithException",
+				"UsingFormatWithTooLongArrayAndException"
 		});
 	}
 
@@ -46,5 +50,15 @@ public class BracketWithoutArgumentTest extends ExampleBasedTest {
 		assertTrue(new BracketWithoutArgument().isThrowable(RuntimeException.class));
 		assertTrue(new BracketWithoutArgument().isThrowable(NullPointerException.class));
 		assertFalse(new BracketWithoutArgument().isThrowable(Object.class));
+		assertFalse(new BracketWithoutArgument().isThrowable(Object[].class));
+		assertFalse(new BracketWithoutArgument().isThrowable(String[].class));
+	}
+
+	@Test
+	public void testIsArray() {
+		assertFalse(new BracketWithoutArgument().isArray(Throwable.class));
+		assertFalse(new BracketWithoutArgument().isArray(Exception.class));
+		assertTrue(new BracketWithoutArgument().isArray(Object[].class));
+		assertTrue(new BracketWithoutArgument().isArray(String[].class));
 	}
 }
