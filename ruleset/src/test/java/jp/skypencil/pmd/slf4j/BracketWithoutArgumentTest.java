@@ -16,7 +16,7 @@ public class BracketWithoutArgumentTest extends ExampleBasedTest {
 
 	@Override
 	protected Rule createRule() {
-		return new BracketWithoutArgument();
+		return new NumberOfPlaceholderShouldBeEqualToNumberOfArgument();
 	}
 
 	@Override
@@ -33,32 +33,32 @@ public class BracketWithoutArgumentTest extends ExampleBasedTest {
 
 	@Test
 	public void testCountDelimiter() {
-		assertThat(new BracketWithoutArgument().countDelimiter(""), is(0));
-		assertThat(new BracketWithoutArgument().countDelimiter("{}"), is(1));
-		assertThat(new BracketWithoutArgument().countDelimiter("a{}"), is(1));
-		assertThat(new BracketWithoutArgument().countDelimiter("{}a"), is(1));
-		assertThat(new BracketWithoutArgument().countDelimiter("a{}a"), is(1));
-		assertThat(new BracketWithoutArgument().countDelimiter("{}{}"), is(2));
-		assertThat(new BracketWithoutArgument().countDelimiter("\\{}"), is(0));
-		assertThat(new BracketWithoutArgument().countDelimiter("\\\\{}"), is(1));
+		assertThat(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().countDelimiter(""), is(0));
+		assertThat(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().countDelimiter("{}"), is(1));
+		assertThat(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().countDelimiter("a{}"), is(1));
+		assertThat(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().countDelimiter("{}a"), is(1));
+		assertThat(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().countDelimiter("a{}a"), is(1));
+		assertThat(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().countDelimiter("{}{}"), is(2));
+		assertThat(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().countDelimiter("\\{}"), is(0));
+		assertThat(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().countDelimiter("\\\\{}"), is(1));
 	}
 
 	@Test
 	public void testIsThrowable() {
-		assertTrue(new BracketWithoutArgument().isThrowable(Throwable.class));
-		assertTrue(new BracketWithoutArgument().isThrowable(Exception.class));
-		assertTrue(new BracketWithoutArgument().isThrowable(RuntimeException.class));
-		assertTrue(new BracketWithoutArgument().isThrowable(NullPointerException.class));
-		assertFalse(new BracketWithoutArgument().isThrowable(Object.class));
-		assertFalse(new BracketWithoutArgument().isThrowable(Object[].class));
-		assertFalse(new BracketWithoutArgument().isThrowable(String[].class));
+		assertTrue(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().isThrowable(Throwable.class));
+		assertTrue(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().isThrowable(Exception.class));
+		assertTrue(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().isThrowable(RuntimeException.class));
+		assertTrue(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().isThrowable(NullPointerException.class));
+		assertFalse(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().isThrowable(Object.class));
+		assertFalse(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().isThrowable(Object[].class));
+		assertFalse(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().isThrowable(String[].class));
 	}
 
 	@Test
 	public void testIsArray() {
-		assertFalse(new BracketWithoutArgument().isArray(Throwable.class));
-		assertFalse(new BracketWithoutArgument().isArray(Exception.class));
-		assertTrue(new BracketWithoutArgument().isArray(Object[].class));
-		assertTrue(new BracketWithoutArgument().isArray(String[].class));
+		assertFalse(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().isArray(Throwable.class));
+		assertFalse(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().isArray(Exception.class));
+		assertTrue(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().isArray(Object[].class));
+		assertTrue(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().isArray(String[].class));
 	}
 }

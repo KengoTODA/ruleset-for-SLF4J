@@ -11,7 +11,7 @@
 		class="jp.skypencil.pmd.slf4j.DontPassOtherClassToLoggerFactory">
 		<priority>1</priority>
 		<description>
-		You have to pass the Class which you're coding about to LoggerFactory#getLogger(Class).
+		Given argument for LoggerFactory#getLogger(Class) is wrong. You have to provide the Class which you're coding.
 		</description>
 		<example><![CDATA[
 class Foo {
@@ -25,7 +25,7 @@ class Foo {
 		class="jp.skypencil.pmd.slf4j.DontPublishLogger">
 		<priority>1</priority>
 		<description>
-		You have to make your all logger to private.
+		Logger should be private.
 		</description>
 		<example><![CDATA[
 class Foo {
@@ -39,7 +39,7 @@ class Foo {
 		class="jp.skypencil.pmd.slf4j.LoggerShouldBeFinal">
 		<priority>1</priority>
 		<description>
-		Your all logger should be final.
+		Logger should be final.
 		</description>
 		<example><![CDATA[
 class Foo {
@@ -49,7 +49,7 @@ class Foo {
 		]]></example>
 	</rule>
 
-	<rule name="DontUseStaticLogger" message="The SLF4J community recommends to use non-static logger."
+	<rule name="DontUseStaticLogger" message="Don&apos;t use static logger."
 		class="jp.skypencil.pmd.slf4j.DontUseStaticLogger">
 		<priority>3</priority>
 		<description>
@@ -59,6 +59,22 @@ class Foo {
 class Foo {
     // Logger has to be non-static
     private final static Logger bad = LoggerFactory.getLogger(Foo.class);
+}
+		]]></example>
+	</rule>
+
+	<rule name="NumberOfPlaceholderShouldBeEqualToNumberOfArgument" message="Number of placeholder does not match to number of argument."
+		class="jp.skypencil.pmd.slf4j.NumberOfPlaceholderShouldBeEqualToNumberOfArgument">
+		<priority>3</priority>
+		<description>
+		Number of placeholder({}) should be equal to number of argument.
+		</description>
+		<example><![CDATA[
+class Foo {
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+    void method() {
+        logger.info("{}, {}.", new Object[]{ "Hello" });
+    }
 }
 		]]></example>
 	</rule>

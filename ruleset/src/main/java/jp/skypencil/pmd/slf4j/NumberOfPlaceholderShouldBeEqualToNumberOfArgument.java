@@ -24,7 +24,7 @@ import net.sourceforge.pmd.ast.ASTVariableInitializer;
 
 import org.slf4j.Logger;
 
-public class BracketWithoutArgument extends AbstractJavaRule {
+public class NumberOfPlaceholderShouldBeEqualToNumberOfArgument extends AbstractJavaRule {
 	private Set<String> loggerFields = new HashSet<String>();
 
 	@Override

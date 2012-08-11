@@ -62,4 +62,20 @@ class Foo {
 }
 		]]></example>
 	</rule>
+
+	<rule name="NumberOfPlaceholderShouldBeEqualToNumberOfArgument" message="Number of placeholder does not match to number of argument."
+		class="jp.skypencil.pmd.slf4j.NumberOfPlaceholderShouldBeEqualToNumberOfArgument">
+		<priority>3</priority>
+		<description>
+		Number of placeholder({}) should be equal to number of argument.
+		</description>
+		<example><![CDATA[
+class Foo {
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+    void method() {
+        logger.info("{}, {}.", new Object[]{ "Hello" });
+    }
+}
+		]]></example>
+	</rule>
 </ruleset>

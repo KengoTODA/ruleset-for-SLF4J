@@ -89,6 +89,30 @@ class Foo {
 }
 ```
 
+## Number of placeholder should be equal to number of argument
+
+```java
+class Foo {
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+    void method() {
+        // this logging method has 2 placeholders, but only 1 parameter
+        logger.info("{}, {}.", new Object[]{ "Hello" });
+    }
+}
+```
+
+### limitation to parse
+- the 1st argument of logging method should be a `literal`
+- if the 2nd argument is array, it should be an array initializer like `new Object[]{ ... }`
+
+# history
+## 0.1
+- first release
+
+## 0.2
+- added `Number of placeholder should be equal to number of argument` rule
+
+
 # copyright and license
 Copyright 2012 Kengo TODA (eller86)
 

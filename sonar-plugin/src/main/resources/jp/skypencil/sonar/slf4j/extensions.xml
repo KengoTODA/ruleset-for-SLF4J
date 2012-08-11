@@ -38,4 +38,14 @@
 		The SLF4J community recommends to use non-static logger. See official FAQ at http://www.slf4j.org/faq.html#declared_static
 		</description>
 	</rule>
+
+	<rule>
+		<key>NumberOfPlaceholderShouldBeEqualToNumberOfArgument</key>
+		<name>Number of placeholder does not match to number of argument.</name>
+		<configKey>jp/skypencil/sonar/slf4j/rulesets.xml/NumberOfPlaceholderShouldBeEqualToNumberOfArgument</configKey>
+		<priority>CRITICAL</priority>
+		<description>
+		Number of placeholder({}) should be equal to number of argument.
+		</description>
+	</rule>
 </rules>
