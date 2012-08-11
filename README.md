@@ -97,9 +97,13 @@ class Foo {
     void method() {
         // this logging method has 2 placeholders, but only 1 parameter
         logger.info("{}, {}.", new Object[]{ "Hello" });
+        // this is OK
+        logger.info("{}, {}.", new Object[]{ "Hello", "World" });
     }
 }
 ```
+
+- supported from version 0.2
 
 ### limitation to parse
 - the 1st argument of logging method should be a `literal`
