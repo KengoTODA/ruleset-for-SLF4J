@@ -1,6 +1,7 @@
 package jp.skypencil.pmd.slf4j;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.regex.Matcher;
@@ -8,6 +9,7 @@ import java.util.regex.Pattern;
 
 import net.sourceforge.pmd.AbstractJavaRule;
 import net.sourceforge.pmd.ast.ASTArgumentList;
+import net.sourceforge.pmd.ast.ASTArrayInitializer;
 import net.sourceforge.pmd.ast.ASTClassOrInterfaceType;
 import net.sourceforge.pmd.ast.ASTExpression;
 import net.sourceforge.pmd.ast.ASTFieldDeclaration;
@@ -18,6 +20,7 @@ import net.sourceforge.pmd.ast.ASTPrimaryPrefix;
 import net.sourceforge.pmd.ast.ASTPrimarySuffix;
 import net.sourceforge.pmd.ast.ASTType;
 import net.sourceforge.pmd.ast.ASTVariableDeclaratorId;
+import net.sourceforge.pmd.ast.ASTVariableInitializer;
 
 import org.slf4j.Logger;
 
@@ -51,16 +54,20 @@ public class BracketWithoutArgument extends AbstractJavaRule {
 			return super.visit(node, data);
 		}
 
-		List<ASTExpression> arguments = argumentList.findChildrenOfType(ASTExpression.class);
+		List<ASTExpression> arguments = findExpressions(argumentList);
 		if (arguments.size() > 0) {
 			ASTLiteral literal = arguments.get(0).getFirstChildOfType(ASTLiteral.class);
 			if (literal != null) {
 				String format = literal.getImage();
 				int expectedArguments = countDelimiter(format);
-				ASTExpression lastArgument = arguments.get(arguments.size() - 1);
 				int givenArguments = arguments.size() - 1;	// removing count of message
+				ASTExpression lastArgument = arguments.get(arguments.size() - 1);
 				if (isThrowable(lastArgument.getType())) {
 					--givenArguments;
+					lastArgument = arguments.get(arguments.size() - 2);
+				}
+				if (hasArrayInitializer(lastArgument)) {
+					givenArguments = sizeOf(lastArgument);
 				}
 				if (expectedArguments != givenArguments) {
 					addViolation(data, node);
@@ -70,7 +77,45 @@ public class BracketWithoutArgument extends AbstractJavaRule {
 		return super.visit(node, data);
 	}
 
+	/**
+	 * Iterate all children in ASTArgumentList to get children which is ASTExpression
+	 */
+	private List<ASTExpression> findExpressions(ASTArgumentList argumentList) {
+		// #findChildrenOfType lists all children which is instance of ASTExpression
+		List<ASTExpression> arguments = argumentList.findChildrenOfType(ASTExpression.class);
+
+		// remove non-direct children
+		for (Iterator<ASTExpression> iter = arguments.iterator(); iter.hasNext();) {
+			if (!iter.next().getNthParent(1).equals(argumentList)) {
+				iter.remove();
+			}
+		}
+
+		return arguments;
+	}
+
+	private boolean hasArrayInitializer(ASTExpression lastArgument) {
+		return lastArgument.containsChildOfType(ASTArrayInitializer.class);
+	}
+
+	int sizeOf(ASTExpression array) {
+		ASTArrayInitializer initializer = array.getFirstChildOfType(ASTArrayInitializer.class);
+		return initializer.findChildrenOfType(ASTVariableInitializer.class).size();
+	}
+
+	boolean isArray(Class<?> clazz) {
+		Class<?> superClass = clazz.getSuperclass();
+		if (superClass == null || superClass == Object.class) {
+			return clazz.isArray();
+		} else {
+			return isArray(superClass);
+		}
+	}
+
 	boolean isThrowable(Class<?> clazz) {
+		if (clazz == null) {
+			return false;
+		}
 		Class<?> superClass = clazz.getSuperclass();
 		if (superClass == null || superClass == Object.class) {
 			return clazz.equals(Throwable.class);

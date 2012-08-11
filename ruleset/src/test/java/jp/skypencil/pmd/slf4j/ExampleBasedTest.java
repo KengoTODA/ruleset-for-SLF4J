@@ -41,6 +41,8 @@ public abstract class ExampleBasedTest {
 					"UsingFormatWithNotEnoughArgument",
 					"UsingFormatWithoutArgumentButWithException",
 					"UsingFormatWithException",
+					"UsingFormatWithTooLongArray",
+					"UsingFormatWithTooManyArgument",
 					"LogWithException",
 					"UsingStaticLogger",
 					"UsingGetClass",
