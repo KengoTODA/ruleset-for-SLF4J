@@ -44,6 +44,7 @@ public abstract class ExampleBasedTest {
 					"UsingFormatWithException",
 					"UsingFormatWithTooLongArray",
 					"UsingFormatWithTooManyArgument",
+					"UsingFormatWithTooLongArrayAndException",
 					"LogWithException",
 					"UsingStaticLogger",
 					"UsingGetClass",

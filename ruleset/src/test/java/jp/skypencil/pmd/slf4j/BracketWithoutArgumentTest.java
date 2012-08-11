@@ -26,7 +26,8 @@ public class BracketWithoutArgumentTest extends ExampleBasedTest {
 				"UsingFormatWithNotEnoughArgument",
 				"UsingFormatWithTooLongArray",
 				"UsingFormatWithTooManyArgument",
-				"UsingFormatWithoutArgumentButWithException"
+				"UsingFormatWithoutArgumentButWithException",
+				"UsingFormatWithTooLongArrayAndException"
 		});
 	}
 
