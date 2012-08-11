@@ -38,6 +38,7 @@ public abstract class ExampleBasedTest {
 			return new HashSet<String>(Arrays.asList(new String[] {
 					"UsingFormat",
 					"UsingFormatWithoutArgument",
+					"UsingFormatWithNotEnoughArgument",
 					"UsingFormatWithoutArgumentButWithException",
 					"UsingFormatWithException",
 					"LogWithException",

@@ -23,6 +23,7 @@ public class BracketWithoutArgumentTest extends ExampleBasedTest {
 	protected Collection<String> getExpectedExampleNames() {
 		return Arrays.asList(new String[]{
 				"UsingFormatWithoutArgument",
+				"UsingFormatWithNotEnoughArgument",
 				"UsingFormatWithoutArgumentButWithException"
 		});
 	}
