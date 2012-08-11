@@ -7,6 +7,10 @@ import net.sourceforge.pmd.Rule;
 
 public final class DontPublishLoggerTest extends ExampleBasedTest {
 
+	public DontPublishLoggerTest(String exampleName) {
+		super(exampleName);
+	}
+
 	@Override
 	protected Rule createRule() {
 		return new DontPublishLogger();

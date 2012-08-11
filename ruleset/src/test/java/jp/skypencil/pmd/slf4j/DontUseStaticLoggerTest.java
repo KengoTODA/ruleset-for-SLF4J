@@ -7,6 +7,10 @@ import net.sourceforge.pmd.Rule;
 
 public class DontUseStaticLoggerTest extends ExampleBasedTest {
 
+	public DontUseStaticLoggerTest(String exampleName) {
+		super(exampleName);
+	}
+
 	@Override
 	protected Rule createRule() {
 		return new DontUseStaticLogger();

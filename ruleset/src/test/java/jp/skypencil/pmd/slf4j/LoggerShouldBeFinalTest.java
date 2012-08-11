@@ -7,6 +7,10 @@ import net.sourceforge.pmd.Rule;
 
 public class LoggerShouldBeFinalTest extends ExampleBasedTest {
 
+	public LoggerShouldBeFinalTest(String exampleName) {
+		super(exampleName);
+	}
+
 	@Override
 	protected Rule createRule() {
 		return new LoggerShouldBeFinal();

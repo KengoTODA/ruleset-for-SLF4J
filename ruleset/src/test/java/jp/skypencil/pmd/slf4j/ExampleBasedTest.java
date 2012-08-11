@@ -10,9 +10,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import net.sourceforge.pmd.PMD;
@@ -24,17 +26,35 @@ import net.sourceforge.pmd.RuleSets;
 import net.sourceforge.pmd.SourceType;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@RunWith(Parameterized.class)
 public abstract class ExampleBasedTest {
 		private static final File TEST_SAMPLE_ROOT_DIR = new File("src/test/java/jp/skypencil/pmd/slf4j/example");
 		private final Logger logger = LoggerFactory.getLogger(getClass());
+		private final String exampleName;
 
 		protected abstract Rule createRule();
 		protected abstract Collection<String> getExpectedExampleNames();
 
-		private Set<String> getExampleNames() {
+		public ExampleBasedTest(String exampleName) {
+			this.exampleName = exampleName;
+		}
+
+		@Parameters(name = "{0}")
+		public static final Collection<Object[]> listParameter() {
+			List<Object[]> param = new ArrayList<Object[]>();
+			for (String exampleName : getExampleNames()) {
+				param.add(new Object[]{ exampleName });
+			}
+			return param;
+		}
+
+		private static Set<String> getExampleNames() {
 			return new HashSet<String>(Arrays.asList(new String[] {
 					"UsingFormat",
 					"UsingFormatWithArray",
@@ -68,15 +88,7 @@ public abstract class ExampleBasedTest {
 		@Test
 		public void test() {
 			final Collection<String> expected = getExpectedExampleNames();
-			final Collection<String> exampleNames = getExampleNames();
-			for (String expectedName : expected) {
-				if (!exampleNames.contains(expectedName)) {
-					throw new AssertionError();
-				}
-			}
-			for (final String exampleName : exampleNames) {
-				assertResult(exampleName, !expected.contains(exampleName));
-			}
+			assertResult(exampleName, !expected.contains(exampleName));
 		}
 
 		private final void assertResult(String sampleFileName, boolean expected) {

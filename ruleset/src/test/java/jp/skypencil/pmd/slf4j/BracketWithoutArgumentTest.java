@@ -14,6 +14,10 @@ import net.sourceforge.pmd.Rule;
 
 public class BracketWithoutArgumentTest extends ExampleBasedTest {
 
+	public BracketWithoutArgumentTest(String exampleName) {
+		super(exampleName);
+	}
+
 	@Override
 	protected Rule createRule() {
 		return new BracketWithoutArgument();
