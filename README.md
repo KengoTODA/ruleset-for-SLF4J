@@ -32,7 +32,7 @@ Simple PMD rules and default ruleset for SLF4J. You can use default ruleset easi
 </plugin>
 ```
 
-To use a part of these rules, you have to create your ruleset XML file.
+If you want to use a part of these rules, you have to create your ruleset XML file.
 Sample ruleset XML file is [here](https://raw.github.com/eller86/ruleset-for-SLF4J/master/ruleset/src/main/resources/slf4j.xml).
 
 ## sonar-plugin
