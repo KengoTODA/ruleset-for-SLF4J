@@ -7,8 +7,7 @@ This ruleset helps you to code with SLF4J.
 This project has 2 sub modules.
 
 ## ruleset
-Simple PMD ruleset for SLF4J. You can use it easily with Maven like below.
-Sample ruleset XML file is [here](https://raw.github.com/eller86/ruleset-for-SLF4J/master/ruleset/src/main/resources/slf4j.xml).
+Simple PMD rules and default ruleset for SLF4J. You can use default ruleset easily with Maven like below.
 
 ```xml
 <plugin>
@@ -27,11 +26,14 @@ Sample ruleset XML file is [here](https://raw.github.com/eller86/ruleset-for-SLF
 		<sourceEncoding>UTF-8</sourceEncoding>
 		<targetJdk>1.6</targetJdk>
 		<rulesets>
-			<ruleset>src/rulesets/slf4j.xml</ruleset>
+			<ruleset>slf4j.xml</ruleset><!-- to use default ruleset for SLF4J -->
 		</rulesets>
 	</configuration>
 </plugin>
 ```
+
+To use a part of these rules, you have to create your ruleset XML file.
+Sample ruleset XML file is [here](https://raw.github.com/eller86/ruleset-for-SLF4J/master/ruleset/src/main/resources/slf4j.xml).
 
 ## sonar-plugin
 An plugin for Sonar.
