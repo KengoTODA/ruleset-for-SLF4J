@@ -42,8 +42,7 @@ You can command `mvn package` to build jar file, or download it from [Maven cent
 Currently, we've provided 5 rules.
 
 ## Don't pass other class to LoggerFactory
-You have to pass the Class which you're coding about to LoggerFactory#getLogger(Class).
-
+Given argument for LoggerFactory#getLogger(Class) is wrong. You have to provide the Class which you're coding.
 ```java
 class Foo {
     // You have to avoid passing Bar.class in Foo.class
@@ -54,7 +53,7 @@ class Foo {
 ```
 
 ## Don't publish Logger
-You have to make your all logger to private.
+Logger should be private.
 
 ```java
 class Foo {
@@ -66,7 +65,7 @@ class Foo {
 ```
 
 ## Logger should be final
-Your all logger should be final.
+Logger should be final.
 
 ```java
 class Foo {
