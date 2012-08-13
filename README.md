@@ -18,7 +18,7 @@ Simple PMD rules and default ruleset for SLF4J. You can use default ruleset easi
 		<dependency>
 			<groupId>jp.skypencil</groupId>
 			<artifactId>RuleSet-for-SLF4J</artifactId>
-			<version>0.1</version>
+			<version>0.2</version>
 		</dependency>
 	</dependencies>
 	<configuration>
