@@ -27,7 +27,8 @@ public class BracketWithoutArgumentTest extends ExampleBasedTest {
 				"UsingFormatWithTooLongArray",
 				"UsingFormatWithTooManyArgument",
 				"UsingFormatWithoutArgumentButWithException",
-				"UsingFormatWithTooLongArrayAndException"
+				"UsingFormatWithTooLongArrayAndException",
+				"UsingSeparatedFormat"	// currently we cannot support this pattern
 		});
 	}
 

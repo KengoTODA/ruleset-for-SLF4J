@@ -8,6 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import net.sourceforge.pmd.AbstractJavaRule;
+import net.sourceforge.pmd.ast.ASTAdditiveExpression;
 import net.sourceforge.pmd.ast.ASTArgumentList;
 import net.sourceforge.pmd.ast.ASTArrayInitializer;
 import net.sourceforge.pmd.ast.ASTClassOrInterfaceType;
@@ -56,8 +57,11 @@ public class NumberOfPlaceholderShouldBeEqualToNumberOfArgument extends Abstract
 
 		List<ASTExpression> arguments = findExpressions(argumentList);
 		if (arguments.size() > 0) {
-			ASTLiteral literal = arguments.get(0).getFirstChildOfType(ASTLiteral.class);
-			if (literal != null) {
+			List<ASTLiteral> literals = arguments.get(0).findChildrenOfType(ASTLiteral.class);
+			if (literals.size() != 1 || arguments.get(0).containsChildOfType(ASTAdditiveExpression.class)) {
+				addViolationWithMessage(data, node, "Sorry but currently this rule handles only string literal as 1st argument.");
+			} else {
+				ASTLiteral literal = literals.get(0);
 				String format = literal.getImage();
 				int expectedArguments = countDelimiter(format);
 				int givenArguments = arguments.size() - 1;	// removing count of message
