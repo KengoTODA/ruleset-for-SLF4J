@@ -6,7 +6,6 @@ import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
@@ -26,6 +25,8 @@ import net.sourceforge.pmd.SourceType;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.google.common.io.Closeables;
 
 public abstract class ExampleBasedTest {
 		private static final File TEST_SAMPLE_ROOT_DIR = new File("src/test/java/jp/skypencil/pmd/slf4j/example");
@@ -117,10 +118,7 @@ public abstract class ExampleBasedTest {
 				logger.error("UnsupportedEncodingException caused", e);
 				throw new RuntimeException(e);
 			} finally {
-				try {
-					reader.close();
-				} catch (IOException ignore) {
-				}
+				Closeables.closeQuietly(reader);
 			}
 		}
 	}

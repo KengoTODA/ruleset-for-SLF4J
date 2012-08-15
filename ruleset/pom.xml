@@ -38,6 +38,11 @@
 			<version>1.6.4</version>
 		</dependency>
 		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>12.0</version>
+		</dependency>
+		<dependency>
 			<groupId>pmd</groupId>
 			<artifactId>pmd</artifactId>
 			<version>4.3</version>
