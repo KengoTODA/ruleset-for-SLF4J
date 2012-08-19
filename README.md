@@ -79,7 +79,8 @@ class Foo {
 ```
 
 ## Don't use static logger
-The SLF4J community recommends to use non-static logger. See [official FAQ](http://www.slf4j.org/faq.html#declared_static).
+Sometimes using non-static logger is better than using static one. See [official FAQ](http://www.slf4j.org/faq.html#declared_static) for detail.
+If you want to keep your logger static, please use [default logging rule](http://pmd.sourceforge.net/pmd-5.0.0/rules/java/logging-java.html#LoggerIsNotStaticFinal) instead.
 
 ```java
 class Foo {
@@ -121,6 +122,9 @@ class Foo {
 - refactored
 - downgrade XML schema to avoid warning in Eclipse (issue #1)
 - added a test case and fixed a bug about exception which is out of CLASSPATH (issue #2)
+
+## 0.4
+- fixed wrong description for `Don't use static logger` rule.
 
 # copyright and license
 Copyright 2012 Kengo TODA (eller86)

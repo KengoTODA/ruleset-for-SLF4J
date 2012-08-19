@@ -53,7 +53,8 @@ class Foo {
 	<rule name="DontUseStaticLogger" message="Don&apos;t use static logger."
 		class="jp.skypencil.pmd.slf4j.DontUseStaticLogger">
 		<description>
-		The SLF4J community recommends to use non-static logger. See official FAQ at http://www.slf4j.org/faq.html#declared_static
+		Sometimes using non-static logger is better than using static one. See official FAQ(http://www.slf4j.org/faq.html#declared_static) for detail.
+		If you want to keep your logger static, please use default logging rule(http://pmd.sourceforge.net/pmd-5.0.0/rules/java/logging-java.html#LoggerIsNotStaticFinal) instead.
 		</description>
 		<priority>3</priority>
 		<example><![CDATA[
