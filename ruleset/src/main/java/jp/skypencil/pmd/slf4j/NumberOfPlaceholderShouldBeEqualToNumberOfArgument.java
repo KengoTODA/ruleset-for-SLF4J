@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 import net.sourceforge.pmd.AbstractJavaRule;
 import net.sourceforge.pmd.ast.ASTAdditiveExpression;
 import net.sourceforge.pmd.ast.ASTArgumentList;
+import net.sourceforge.pmd.ast.ASTArrayDimsAndInits;
 import net.sourceforge.pmd.ast.ASTArrayInitializer;
 import net.sourceforge.pmd.ast.ASTClassOrInterfaceType;
 import net.sourceforge.pmd.ast.ASTExpression;
@@ -66,7 +67,7 @@ public class NumberOfPlaceholderShouldBeEqualToNumberOfArgument extends Abstract
 				int expectedArguments = countDelimiter(format);
 				int givenArguments = arguments.size() - 1;	// removing count of message
 				ASTExpression lastArgument = arguments.get(arguments.size() - 1);
-				if (isThrowable(lastArgument.getType())) {
+				if (!isArray(lastArgument) && isThrowable(lastArgument.getType())) {
 					--givenArguments;
 					lastArgument = arguments.get(arguments.size() - 2);
 				}
@@ -107,18 +108,15 @@ public class NumberOfPlaceholderShouldBeEqualToNumberOfArgument extends Abstract
 		return initializer.findChildrenOfType(ASTVariableInitializer.class).size();
 	}
 
-	boolean isArray(Class<?> clazz) {
-		Class<?> superClass = clazz.getSuperclass();
-		if (superClass == null || superClass == Object.class) {
-			return clazz.isArray();
-		} else {
-			return isArray(superClass);
-		}
+	private boolean isArray(ASTExpression lastArgument) {
+		return lastArgument.containsChildOfType(ASTArrayDimsAndInits.class);
 	}
 
 	boolean isThrowable(Class<?> clazz) {
 		if (clazz == null) {
-			return false;
+			// Given argument is an instance of class which is out of CLASSPATH.
+			// We guess it as an instance of original throwable.
+			return true;
 		}
 		Class<?> superClass = clazz.getSuperclass();
 		if (superClass == null || superClass == Object.class) {

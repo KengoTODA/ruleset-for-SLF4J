@@ -50,16 +50,9 @@ public class BracketWithoutArgumentTest extends ExampleBasedTest {
 		assertTrue(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().isThrowable(Exception.class));
 		assertTrue(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().isThrowable(RuntimeException.class));
 		assertTrue(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().isThrowable(NullPointerException.class));
+		assertTrue(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().isThrowable(null));
 		assertFalse(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().isThrowable(Object.class));
 		assertFalse(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().isThrowable(Object[].class));
 		assertFalse(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().isThrowable(String[].class));
-	}
-
-	@Test
-	public void testIsArray() {
-		assertFalse(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().isArray(Throwable.class));
-		assertFalse(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().isArray(Exception.class));
-		assertTrue(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().isArray(Object[].class));
-		assertTrue(new NumberOfPlaceholderShouldBeEqualToNumberOfArgument().isArray(String[].class));
 	}
 }
