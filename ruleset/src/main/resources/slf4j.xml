@@ -1,18 +1,19 @@
 <?xml version="1.0"?>
-<ruleset name="SLF4J" xmlns="http://pmd.sf.net/ruleset/2.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd"
-	xsi:noNamespaceSchemaLocation="http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+<ruleset name="SLF4J"
+        xmlns="http://pmd.sf.net/ruleset/1.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd"
+        xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd">
 	<description>
 		Rulesets for SLF4J.
 	</description>
 
 	<rule name="DontPassOtherClassToLoggerFactory" message="You have to pass the Class which you're coding about to LoggerFactory#getLogger(Class)."
 		class="jp.skypencil.pmd.slf4j.DontPassOtherClassToLoggerFactory">
-		<priority>1</priority>
 		<description>
 		Given argument for LoggerFactory#getLogger(Class) is wrong. You have to provide the Class which you're coding.
 		</description>
+		<priority>1</priority>
 		<example><![CDATA[
 class Foo {
     // You have to avoid passing Bar.class in Foo.class
@@ -23,10 +24,10 @@ class Foo {
 
 	<rule name="DontPublishLogger" message="You have to make your all logger to private."
 		class="jp.skypencil.pmd.slf4j.DontPublishLogger">
-		<priority>1</priority>
 		<description>
 		Logger should be private.
 		</description>
+		<priority>1</priority>
 		<example><![CDATA[
 class Foo {
     // You have to avoid publishing Logger
@@ -37,10 +38,10 @@ class Foo {
 
 	<rule name="LoggerShouldBeFinal" message="Your all logger should be final."
 		class="jp.skypencil.pmd.slf4j.LoggerShouldBeFinal">
-		<priority>1</priority>
 		<description>
 		Logger should be final.
 		</description>
+		<priority>1</priority>
 		<example><![CDATA[
 class Foo {
     // Logger should be final
@@ -51,10 +52,10 @@ class Foo {
 
 	<rule name="DontUseStaticLogger" message="Don&apos;t use static logger."
 		class="jp.skypencil.pmd.slf4j.DontUseStaticLogger">
-		<priority>3</priority>
 		<description>
 		The SLF4J community recommends to use non-static logger. See official FAQ at http://www.slf4j.org/faq.html#declared_static
 		</description>
+		<priority>3</priority>
 		<example><![CDATA[
 class Foo {
     // Logger has to be non-static
@@ -65,10 +66,10 @@ class Foo {
 
 	<rule name="NumberOfPlaceholderShouldBeEqualToNumberOfArgument" message="Number of placeholder does not match to number of argument."
 		class="jp.skypencil.pmd.slf4j.NumberOfPlaceholderShouldBeEqualToNumberOfArgument">
-		<priority>3</priority>
 		<description>
 		Number of placeholder({}) should be equal to number of argument.
 		</description>
+		<priority>3</priority>
 		<example><![CDATA[
 class Foo {
     private final Logger logger = LoggerFactory.getLogger(getClass());
