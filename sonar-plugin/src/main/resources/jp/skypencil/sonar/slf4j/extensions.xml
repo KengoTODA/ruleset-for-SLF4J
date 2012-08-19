@@ -35,7 +35,7 @@
 		<configKey>jp/skypencil/sonar/slf4j/rulesets.xml/DontUseStaticLogger</configKey>
 		<priority>MAJOR</priority>
 		<description>
-		The SLF4J community recommends to use non-static logger. See official FAQ at http://www.slf4j.org/faq.html#declared_static
+		Sometimes using non-static logger is better than using static one. See official FAQ(http://www.slf4j.org/faq.html#declared_static) for detail.
 		</description>
 	</rule>
 
