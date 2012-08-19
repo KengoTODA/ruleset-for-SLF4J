@@ -18,7 +18,7 @@ Simple PMD rules and default ruleset for SLF4J. You can use default ruleset easi
 		<dependency>
 			<groupId>jp.skypencil</groupId>
 			<artifactId>RuleSet-for-SLF4J</artifactId>
-			<version>0.2</version>
+			<version>0.3</version>
 		</dependency>
 	</dependencies>
 	<configuration>
@@ -117,6 +117,10 @@ class Foo {
 ## 0.2
 - added `Number of placeholder should be equal to number of argument` rule
 
+## 0.3
+- refactored
+- downgrade XML schema to avoid warning in Eclipse (issue #1)
+- added a test case and fixed a bug about exception which is out of CLASSPATH (issue #2)
 
 # copyright and license
 Copyright 2012 Kengo TODA (eller86)
