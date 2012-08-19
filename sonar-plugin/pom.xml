@@ -4,12 +4,12 @@
 	<groupId>jp.skypencil</groupId>
 	<artifactId>sonar-pmd-for-SLF4J-plugin</artifactId>
 	<packaging>sonar-plugin</packaging>
-	<version>0.3</version>
+	<version>0.4-SNAPSHOT</version>
 	<name>PMD Extension Plugin for SLF4J</name>
 	<parent>
 		<groupId>jp.skypencil</groupId>
 		<artifactId>PMD-tools-for-SLF4J</artifactId>
-		<version>0.3</version>
+		<version>0.4-SNAPSHOT</version>
 	</parent>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -48,7 +48,7 @@
 		<dependency>
 			<groupId>jp.skypencil</groupId>
 			<artifactId>RuleSet-for-SLF4J</artifactId>
-			<version>0.3</version>
+			<version>0.4-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 

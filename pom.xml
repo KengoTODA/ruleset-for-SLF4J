@@ -3,7 +3,7 @@
 	<groupId>jp.skypencil</groupId>
 	<artifactId>PMD-tools-for-SLF4J</artifactId>
 	<name>PMD tools for SLF4J</name>
-	<version>0.3</version>
+	<version>0.4-SNAPSHOT</version>
 	<url>https://github.com/eller86/ruleset-for-SLF4J</url>
 	<packaging>pom</packaging>
 	<description>PMD tools for SLF4J</description>
