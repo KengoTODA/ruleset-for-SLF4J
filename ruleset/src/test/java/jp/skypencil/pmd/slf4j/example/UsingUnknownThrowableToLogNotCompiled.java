@@ -7,10 +7,10 @@ import org.slf4j.LoggerFactory;
 
 public class UsingUnknownThrowableToLogNotCompiled extends RuntimeException {
 	@SuppressWarnings("unused")
-	private final Logger LOGGER = LoggerFactory.getLogger(UsingUnknownThrowableToLogNotCompiled.class);
+	private final Logger logger = LoggerFactory.getLogger(UsingUnknownThrowableToLogNotCompiled.class);
 
 	public void method() {
 		UsingUnknownThrowableToLogNotCompiled t = new UsingUnknownThrowableToLogNotCompiled();
-		logger.info("UsingUnknownThrowableToLogNotCompiled, {}", t);
+		logger.info("UsingUnknownThrowableToLogNotCompiled", t);
 	}
 }
