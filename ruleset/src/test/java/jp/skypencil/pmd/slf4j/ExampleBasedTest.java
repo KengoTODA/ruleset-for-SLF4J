@@ -63,7 +63,8 @@ public abstract class ExampleBasedTest {
 					"HasOtherField",
 					"UsingUnknownClassNotCompiled",
 					"UsingUnknownClassToFieldNotCompiled",
-					"UsingUnknownThrowableToLogNotCompiled"
+					"UsingUnknownThrowableToLogNotCompiled",
+					"WithoutLogger"
 			}));
 		}
 
