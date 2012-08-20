@@ -50,7 +50,11 @@ public class NumberOfPlaceholderShouldBeEqualToNumberOfArgument extends Abstract
 		if (prefix == null || suffix == null) {
 			return super.visit(node, data);
 		}
-		String expressionName = prefix.getFirstChildOfType(ASTName.class).getImage();
+		ASTName name = prefix.getFirstChildOfType(ASTName.class);
+		if (name == null) {
+			return super.visit(node, data);
+		}
+		String expressionName = name.getImage();
 		ASTArgumentList argumentList = suffix.getFirstChildOfType(ASTArgumentList.class);
 		if (!isLogging(expressionName) || argumentList == null) {
 			return super.visit(node, data);
