@@ -18,7 +18,7 @@ Simple PMD rules and default ruleset for SLF4J. You can use default ruleset easi
 		<dependency>
 			<groupId>jp.skypencil</groupId>
 			<artifactId>RuleSet-for-SLF4J</artifactId>
-			<version>0.3</version>
+			<version>0.4</version>
 		</dependency>
 	</dependencies>
 	<configuration>
@@ -124,7 +124,8 @@ class Foo {
 - added a test case and fixed a bug about exception which is out of CLASSPATH (issue #2)
 
 ## 0.4
-- fixed wrong description for `Don't use static logger` rule.
+- fixed wrong description for `Don't use static logger` rule
+- fixed NPE (issue #3)
 
 # copyright and license
 Copyright 2012 Kengo TODA (eller86)
