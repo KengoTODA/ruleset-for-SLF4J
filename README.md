@@ -106,6 +106,7 @@ class Foo {
 ```
 
 - supported from version 0.2
+- [this rule has a trouble](https://github.com/eller86/ruleset-for-SLF4J/issues/4), please try [findbugs-slf4j](https://github.com/eller86/findbugs-slf4j) instead.
 
 ### limitation to parse
 - the 1st argument of logging method should be a `literal`
